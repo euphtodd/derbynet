@@ -1,0 +1,39 @@
+{
+  "event": {
+    "name": "Monon District Pintwood Derby",
+    "date": "February 21, 2026",
+    "location": "Liter House",
+    "city": "Indianapolis, IN",
+    "website": "https://indypintwoodderby.com",
+    "logo_path": "/derbynet-data/pintwood-logo.png"
+  },
+  "theme": {
+    "enabled": true,
+    "public_pages": [
+      "index.php",
+      "login.php",
+      "racer-results.php",
+      "slideshow.php",
+      "kiosk.php",
+      "sponsors.kiosk.php",
+      "ondeck.php",
+      "now-racing.php",
+      "awards.php"
+    ],
+    "hide_buttons_when_not_logged_in": [
+      ".control_group",
+      ".coordinator-only",
+      ".racecrew-only",
+      "#checkin-button",
+      "#photo-button",
+      "#settings-button"
+    ]
+  },
+  "features": {
+    "sponsor_footer": true,
+    "sponsor_kiosk": true,
+    "custom_header": true,
+    "hide_help_button": true,
+    "mobile_responsive": true
+  }
+}

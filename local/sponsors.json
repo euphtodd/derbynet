@@ -1,0 +1,43 @@
+{
+  "sponsors": {
+    "keg": [
+      {
+        "name": "Title Sponsor Name",
+        "logo": "keg/sponsor1.png",
+        "url": "https://example.com"
+      }
+    ],
+    "growler": [
+      {
+        "name": "Growler Sponsor 1",
+        "logo": "growler/sponsor1.png",
+        "url": ""
+      }
+    ],
+    "liter": [
+      {
+        "name": "Liter Sponsor 1",
+        "logo": "liter/sponsor1.png",
+        "url": ""
+      }
+    ],
+    "pint": [
+      {
+        "name": "Pint Sponsor 1",
+        "logo": "pint/sponsor1.png",
+        "url": ""
+      }
+    ]
+  },
+  "config": {
+    "sponsor_base_path": "/derbynet-data/sponsors/",
+    "logo_sizes": {
+      "keg": "200px",
+      "growler": "150px",
+      "liter": "120px",
+      "pint": "100px"
+    },
+    "kiosk_rotation_interval": 5000,
+    "footer_display_mode": "single-line"
+  }
+}

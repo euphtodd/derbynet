@@ -5,6 +5,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// PWD helper page
+require_once('inc/theme-selector.inc');
 // Redirects to setup page if the database hasn't yet been set up
 require_once('inc/data.inc');
 require_once('inc/schema_version.inc');
@@ -51,6 +53,10 @@ function make_spacer_if($cond) {
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Pinewood Derby Race Information</title>
 <?php require('inc/stylesheet.inc'); ?>
+
+<!-- Pintwood Theme Integration -->
+ <?php pintwood_head_includes(); ?>
+
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 <style type="text/css">
@@ -93,6 +99,11 @@ div.index_column {
 </head>
 <body>
 <?php
+  // Include custom header and footer handlers
+  require_once('inc/header.inc');
+  require_once('inc/footer.inc');
+  replace_default_banner('Welcome', false);
+
   make_banner('', /* back_button */ false);
 
  $need_spacer = false;
@@ -175,6 +186,11 @@ if ($two_columns) {
 }
 
 echo "</div>\n";  // index_background
+
+if (should_use_pintwood_theme()) {
+    add_pintwood_footer();
+}
+
 echo "</body>\n";
 echo "</html>\n";
 ?>

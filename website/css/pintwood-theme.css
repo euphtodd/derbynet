@@ -1,0 +1,377 @@
+/* Pintwood Derby Custom Theme CSS */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+    --pintwood-citrine: #D89A12;
+    --pintwood-sapphire: #1B76BC;
+    --pintwood-garnet: #9a0101;
+    --pintwood-dark-bg: #231F20;
+    --pintwood-darker-bg: #1e1e1e;
+    --pintwood-light-text: #f5f5f5;
+    --pintwood-muted-text: #b8b8b8;
+}
+
+/* Dark Theme Styles - Applied to body.pintwood-dark */
+body.pintwood-dark {
+    background-color: var(--pintwood-dark-bg);
+    color: var(--pintwood-light-text);
+    font-family: 'Roboto', sans-serif;
+}
+
+body.pintwood-dark h1,
+body.pintwood-dark h2,
+body.pintwood-dark h3,
+body.pintwood-dark h4,
+body.pintwood-dark h5,
+body.pintwood-dark h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--pintwood-citrine);
+    font-weight: 600;
+}
+
+body.pintwood-dark a {
+    color: var(--pintwood-sapphire);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.pintwood-dark a:hover {
+    color: var(--pintwood-citrine);
+}
+
+/* Custom Header Styles */
+.pintwood-header {
+    background: linear-gradient(135deg, var(--pintwood-darker-bg) 0%, var(--pintwood-dark-bg) 100%);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 100;
+}
+
+.pintwood-header .header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pintwood-header .back-button {
+    background-color: var(--pintwood-sapphire);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.pintwood-header .back-button:hover {
+    background-color: var(--pintwood-citrine);
+}
+
+.pintwood-header .event-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pintwood-header .event-logo img {
+    max-height: 60px;
+    width: auto;
+}
+
+.pintwood-header .event-wordmark {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--pintwood-citrine);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pintwood-header .header-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.pintwood-header .page-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--pintwood-light-text);
+    margin: 0;
+}
+
+.pintwood-header .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.pintwood-header .title-sponsor img {
+    display: flex;
+    max-height: 80px;
+    width: auto;
+    padding: auto 0;
+}
+
+/* Sponsor Footer Styles */
+.sponsor-footer {
+    position: fixed;
+    max-height: 80px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, var(--pintwood-darker-bg) 0%, rgba(35, 31, 32, 0.95) 100%);
+    padding: 10px 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+.sponsor-footer .sponsor-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.sponsor-footer .sponsor-tier {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.sponsor-footer .sponsor-item {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.sponsor-footer .sponsor-item:hover {
+    transform: scale(1.05);
+}
+
+.sponsor-footer .sponsor-item img {
+    display: block;
+    width: auto;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+
+.sponsor-footer .sponsor-item:hover img {
+    filter: brightness(1.1);
+}
+
+/* Adjust main content to account for fixed footer */
+body.pintwood-dark.has-sponsor-footer {
+    padding-bottom: 120px;
+}
+
+/* Tables in dark theme */
+body.pintwood-dark table {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+body.pintwood-dark th {
+    background-color: var(--pintwood-sapphire);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 12px;
+    text-align: left;
+}
+
+body.pintwood-dark td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.pintwood-dark tr:hover {
+    background-color: rgba(216, 154, 18, 0.1);
+}
+
+/* Buttons in dark theme */
+body.pintwood-dark button,
+body.pintwood-dark input[type="submit"],
+body.pintwood-dark input[type="button"] {
+    background-color: var(--pintwood-sapphire);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.pintwood-dark button:hover,
+body.pintwood-dark input[type="submit"]:hover,
+body.pintwood-dark input[type="button"]:hover {
+    background-color: var(--pintwood-citrine);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(216, 154, 18, 0.3);
+}
+
+/* Form inputs in dark theme */
+body.pintwood-dark input[type="text"],
+body.pintwood-dark input[type="password"],
+body.pintwood-dark input[type="email"],
+body.pintwood-dark select,
+body.pintwood-dark textarea {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--pintwood-light-text);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body.pintwood-dark input[type="text"]:focus,
+body.pintwood-dark input[type="password"]:focus,
+body.pintwood-dark input[type="email"]:focus,
+body.pintwood-dark select:focus,
+body.pintwood-dark textarea:focus {
+    outline: none;
+    border-color: var(--pintwood-citrine);
+    box-shadow: 0 0 0 2px rgba(216, 154, 18, 0.2);
+}
+
+/* Hide specific buttons for non-logged-in users on index.php */
+body.pintwood-dark.not-logged-in .control-panel-button,
+body.pintwood-dark.not-logged-in .admin-only-button {
+    display: none;
+}
+
+/* Sponsor Kiosk Styles */
+.sponsor-kiosk {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--pintwood-darker-bg) 0%, var(--pintwood-dark-bg) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.sponsor-kiosk .sponsor-display {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.sponsor-kiosk .sponsor-logo {
+    max-width: 80vw;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.sponsor-kiosk .sponsor-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--pintwood-citrine);
+    margin-top: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sponsor-kiosk .sponsor-tier-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: var(--pintwood-muted-text);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .pintwood-header {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+    }
+    
+    .pintwood-header .event-wordmark {
+        font-size: 18px;
+    }
+    
+    .pintwood-header .page-title {
+        font-size: 20px;
+    }
+    
+    .pintwood-header .event-logo img,
+    .pintwood-header .title-sponsor img {
+        max-height: 40px;
+    }
+    
+    .sponsor-footer {
+        padding: 10px;
+    }
+    
+    .sponsor-footer .sponsor-container {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .sponsor-footer .sponsor-tier {
+        gap: 10px;
+    }
+    
+    body.pintwood-dark.has-sponsor-footer {
+        padding-bottom: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pintwood-header .header-left,
+    .pintwood-header .header-center,
+    .pintwood-header .header-right {
+        width: 100%;
+        justify-content: center;
+        margin: 5px 0;
+    }
+    
+    .sponsor-kiosk .sponsor-name {
+        font-size: 32px;
+    }
+    
+    .sponsor-kiosk .sponsor-tier-label {
+        font-size: 18px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .pintwood-header,
+    .sponsor-footer {
+        display: none;
+    }
+    
+    body.pintwood-dark.has-sponsor-footer {
+        padding-bottom: 0;
+    }
+}
