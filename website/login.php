@@ -1,4 +1,6 @@
-<?php @session_start(); 
+<?php 
+require_once('inc/theme-selector.inc');
+@session_start(); 
 
 // Login page: present a list of the possible roles, and, upon
 // selection, prompt for a password and log the user in.
@@ -52,12 +54,17 @@ require_once('inc/locked.inc');
 <script type="text/javascript" src="js/ajax-setup.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
+<?php pintwood_head_includes(); ?>
 </head>
 <body<?php if (isset($_GET['logout'])) echo ' onload="handle_logout()"'; ?>>
-
-<a id="banner_link" href="<?php echo isset($_GET['all']) ? '?' : '?all'; ?>">
-  <?php make_banner(''); ?>
-</a>
+<?php 
+  require_once('inc/header.inc');
+  require_once('inc/footer.inc');
+?>
+<!-- Uncomment (and fix php opening syntax) if we need to access the 'camera' and 'timer' login links. Don't forget the ending </a> tag below.
+ <a id="banner_link" href="< ?php echo isset($_GET['all']) ? '?' : '?all'; ?>"> -->
+ <?php replace_default_banner('Page Title', true, 'index.php'); ?>
+<!-- </a> -->
 
 <div class="index_background">
 <div class="block_buttons">
@@ -98,7 +105,6 @@ if (@$_SESSION['role']) {
   <p>Enter password:</p>
   <p><input type="password" name="pw" id="pw_for_password"/></p>
   <?php if (!locked_settings()) { ?>
-  <p>&nbsp;</p>
   <p>Don't remember setting a password?  Consult the documentation.</p>
   <?php } ?>
   <input type="submit" value="Submit"/>

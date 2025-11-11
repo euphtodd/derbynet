@@ -202,8 +202,12 @@ body.pintwood-dark tr:hover {
 /* Buttons in dark theme */
 body.pintwood-dark button,
 body.pintwood-dark input[type="submit"],
-body.pintwood-dark input[type="button"] {
-    background-color: var(--pintwood-sapphire);
+body.pintwood-dark input[type="button"],
+body.pintwood-dark .block_buttons a.button_link,
+body.pintwood-dark .block_buttons input[type='button'],
+body.pintwood-dark .block_buttons input[type='submit'],
+body.pintwood-dark .block_buttons .button_link {
+    background: var(--pintwood-sapphire);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -216,10 +220,33 @@ body.pintwood-dark input[type="button"] {
 
 body.pintwood-dark button:hover,
 body.pintwood-dark input[type="submit"]:hover,
-body.pintwood-dark input[type="button"]:hover {
-    background-color: var(--pintwood-citrine);
-    transform: translateY(-2px);
+body.pintwood-dark input[type="button"]:hover,
+body.pintwood-dark .block_buttons a.button_link:hover,
+body.pintwood-dark .block_buttons input[type='button']:hover,
+body.pintwood-dark .block_buttons input[type='submit']:hover,
+body.pintwood-dark .block_buttons .button_link:hover {
+    background: var(--pintwood-citrine);
     box-shadow: 0 4px 8px rgba(216, 154, 18, 0.3);
+}
+
+/* Index Page buttons */
+body.pintwood-dark .block_buttons a.button_link.before_button,
+body.pintwood-dark .block_buttons input.before_button[type='submit'] {
+  background: var(--pintwood-citrine);
+  color: var(--pintwood-dark-bg);
+}
+body.pintwood-dark .block_buttons a.button_link.during_button,
+body.pintwood-dark .block_buttons input.during_button[type='submit'] {
+  background: var(--pintwood-sapphire);
+}
+body.pintwood-dark .block_buttons a.button_link.after_button,
+body.pintwood-dark .block_buttons input.after_button[type='submit'] {
+  background: var(--pintwood-garnet);
+}
+body.pintwood-dark .block_buttons a.button_link.other_button,
+body.pintwood-dark .block_buttons input.other_button[type='submit'] {
+  background: var(--pintwood-muted-text);
+  color: var(--pintwood-dark-bg);
 }
 
 /* Form inputs in dark theme */
@@ -250,6 +277,15 @@ body.pintwood-dark textarea:focus {
 body.pintwood-dark.not-logged-in .control-panel-button,
 body.pintwood-dark.not-logged-in .admin-only-button {
     display: none;
+}
+
+/* Modals */
+.modal_dialog {
+    background: var(--pintwood-darker-bg);
+}
+
+.modal_dialog p {
+    font-size: 1em;
 }
 
 /* Sponsor Kiosk Styles */

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <?php
+require_once('inc/theme-selector.inc');
+@session_start();
 require_once('inc/banner.inc');
 require_once('inc/photo-config.inc');
 ?><head>
@@ -17,9 +19,16 @@ require_once('inc/photo-config.inc');
        ?>;
     </script>
     <script type="text/javascript" src="js/slideshow.js"></script>
+<?php pintwood_head_includes(); ?>
   </head>
 
   <body>
+  <?php
+    require_once('inc/header.inc');
+    require_once('inc/footer.inc');
+
+    replace_default_banner('Slideshow', !isset($as_kiosk) ? '' : 'index.php');
+  ?>
   <?php if (!isset($as_kiosk)) make_banner('Slideshow'); ?>
   <div id="photo-background" class="photo-background">
     <div class="next">
@@ -28,6 +37,9 @@ require_once('inc/photo-config.inc');
     </div>
   </div>
 
-  <?php if (isset($as_kiosk)) require('inc/ajax-failure.inc'); ?>
+  <?php
+    if (isset($as_kiosk)) require('inc/ajax-failure.inc');
+    if (should_use_pintwood_theme()) add_pintwood_footer();
+  ?>
   </body>
 </html>

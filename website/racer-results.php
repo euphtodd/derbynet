@@ -1,4 +1,6 @@
-<?php @session_start();
+<?php 
+require_once('inc/theme-selector.inc');
+@session_start();
 require_once('inc/data.inc');
 session_write_close();
 require_once('inc/banner.inc');
@@ -55,10 +57,17 @@ if (isset($as_kiosk)) {
 <link rel="stylesheet" type="text/css" href="css/kiosks.css"/>
 <link rel="stylesheet" type="text/css" href="css/main-table.css"/>
 <link rel="stylesheet" type="text/css" href="css/racer-results.css"/>
+<!-- Pintwood Theme Integration -->
+<?php pintwood_head_includes(); ?>
 </head>
 <body>
 <?php
-make_banner('Results By Racer', isset($as_kiosk) ? '' : 'index.php');
+
+  // Include our custom header and footer handlers
+  require_once('inc/header.inc');
+  require_once('inc/footer.inc');
+  // Replace 'Page Title' with appropriate title
+  replace_default_banner('Results by Racer', isset($as_kiosk) ? '' : 'index.php');
 
 $nlanes = get_lane_count_from_results();
 
@@ -231,6 +240,10 @@ $stmt->closeCursor();
   }
 ?>
 </div>
-<?php require_once('inc/ajax-failure.inc'); ?>
+<?php require_once('inc/ajax-failure.inc'); 
+if (should_use_pintwood_theme()) {
+    add_pintwood_footer();
+}
+?>
 </body>
 </html>

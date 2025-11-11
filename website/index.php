@@ -34,7 +34,7 @@ $show_voting_button =
 function make_link_button($label, $link, $permission, $button_class) {
   if (have_permission($permission)) {
     echo "<a class='button_link ".$button_class."' href='".$link."'>".$label."</a>\n";
-    echo "<br/>\n";
+    // echo "<br/>\n";
     return true;
   } else {
     return false;
@@ -61,40 +61,30 @@ function make_spacer_if($cond) {
 <script type="text/javascript" src="js/modal.js"></script>
 <style type="text/css">
 div.index_spacer {
-  height: 40px;
+  height: 30px;
 }
 
 div.index_background {
   width: 100%;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 div.index_column {
-  width: 50%;
-  display: inline-block;
-  float: left;
+  display: flex;
 }
 
 .block_buttons a.button_link {
-  width: 238px;
-  height: 30px;
+  width: 200px;
+  height: auto;
 }
 
-.block_buttons a.button_link.before_button,
-.block_buttons input.before_button[type='submit'] {
-  color: #ffffcc;
+.block_buttons .double a.button_link {
+  width: 75px;
+  padding: 10px;
 }
-.block_buttons a.button_link.during_button,
-.block_buttons input.during_button[type='submit'] {
-  color: #ddffdd;
-}
-.block_buttons a.button_link.after_button,
-.block_buttons input.after_button[type='submit'] {
-  color: #ddddff;
-}
-.block_buttons a.button_link.other_button,
-.block_buttons input.other_button[type='submit'] {
-  color: #ffddff;
-}
+
 </style>
 </head>
 <body>
