@@ -1,4 +1,6 @@
-<?php @session_start();
+<?php 
+require_once('inc/theme-selector.inc');
+@session_start();
 // Controls the "current award" kiosk display
 require_once('inc/data.inc');
 require_once('inc/authorize.inc');
@@ -52,9 +54,13 @@ $name_style = read_name_style();
 ?>
 <link rel="stylesheet" type="text/css" href="css/mobile.css"/>
 <link rel="stylesheet" type="text/css" href="css/awards-presentation.css"/>
+<?php pintwood_head_includes(); ?>
 </head>
 <body>
-<?php make_banner('Awards Presentation');
+<?php
+require_once('inc/header.inc');
+require_once('inc/footer.inc');
+replace_default_banner('Awards', false);
 
 $use_subgroups = use_subgroups();
 

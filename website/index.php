@@ -55,7 +55,7 @@ function make_spacer_if($cond) {
 <?php require('inc/stylesheet.inc'); ?>
 
 <!-- Pintwood Theme Integration -->
- <?php pintwood_head_includes(); ?>
+<?php pintwood_head_includes(); ?>
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
@@ -66,7 +66,6 @@ div.index_spacer {
 
 div.index_background {
   width: 100%;
-  padding-top: 40px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -93,8 +92,6 @@ div.index_column {
   require_once('inc/header.inc');
   require_once('inc/footer.inc');
   replace_default_banner('Welcome', false);
-
-  make_banner('', /* back_button */ false);
 
  $need_spacer = false;
 

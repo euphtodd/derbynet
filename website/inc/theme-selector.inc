@@ -16,7 +16,8 @@ function should_use_pintwood_theme() {
         'sponsors.kiosk.php',  // Our custom sponsor kiosk
         'ondeck.php',
         'now-racing.php',
-        'awards.php'
+        'awards-presentation.php',
+        'export.php'
     );
     
     // Check if current page is in the public pages list

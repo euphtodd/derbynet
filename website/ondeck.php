@@ -6,6 +6,7 @@
 // kiosks/ondeck.kiosk, the session_start() function will already have been
 // called.  The @ is necessary to suppress the error notice that may arise in
 // this case.
+require_once('inc/theme-selector.inc');
 @session_start();
 require_once('inc/data.inc');
 require_once('inc/authorize.inc');
@@ -50,10 +51,19 @@ require_once('inc/schema_version.inc');
 <link rel="stylesheet" type="text/css" href="css/main-table.css"/>
 <link rel="stylesheet" type="text/css" href="css/lane-colors.css"/>
 <link rel="stylesheet" type="text/css" href="css/ondeck.css"/>
+<?php pintwood_head_includes(); ?>
+<style>
+  .pintwood-header {
+    margin-bottom: 0px;
+}
+</style>
 </head>
 <body>
-<?php make_banner('Racers On Deck', isset($as_kiosk) ? '' : 'index.php'); ?>
-
+<?php
+require_once('inc/header.inc');
+require_once('inc/footer.inc');
+replace_default_banner('Racers On Deck', isset($as_kiosk) ? '' : 'index.php');
+?>  
 <table id="schedule" class="main_table curgroup">
 </table>
 
@@ -65,7 +75,11 @@ require_once('inc/schema_version.inc');
   <input type="button" value="Close"
     onclick='close_modal("#photo_view_modal");'/>
 </div>
-
+<?php
+if (should_use_pintwood_theme()) {
+    add_pintwood_footer();
+}
+?>
 </body>
 </html>
 

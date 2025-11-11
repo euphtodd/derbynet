@@ -22,13 +22,18 @@ function render_pintwood_header($page_title = '', $show_back_button = false, $ba
         <div class="header-left">
             <?php if ($show_back_button): ?>
                 <button class="back-button" onclick="window.location.href='<?php echo htmlspecialchars($back_url); ?>'">
-                    ← Back
+                    <
                 </button>
             <?php endif; ?>
             <div class="event-logo">
                 <img src="<?php echo $logo_path; ?>" alt="Pintwood Derby Logo" 
                      onerror="this.style.display='none'; console.error('Pintwood logo not found at: ' + this.src);" />
-                <div class="event-wordmark">Monon District<br>Pintwood Derby</div>
+                <div class="event-wordmark">
+                    <h1>
+                        <span class="top-line">Monon District</span>
+                        <span class="highlight">Pintwood Derby</span>
+                    </h1>
+                </div>
             </div>
         </div>
         

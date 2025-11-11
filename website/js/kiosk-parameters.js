@@ -92,7 +92,7 @@ function decorate_please_check_in(kiosk_div, parameters, callback) {
 function show_config_please_check_in(event) {
   $("#slideshow_div").addClass('hidden');
   populate_classids(event.data.parameters);
-  show_modal("#config_classes_modal", function(ev) {
+  show_modal("#config_classes_modal", function(event) {
     close_modal("#config_classes_modal");
     event.data.callback({classids: compute_classids()});
     return false;
@@ -209,8 +209,8 @@ g_kiosk_page_handlers['kiosks/award-presentations.kiosk'] = {
       .prop('checked',  parameters.confetti)
       .on("change", /*selector*/null, /*data*/{parameters: parameters, callback: callback},
           /*handler*/function (ev) {
-            var checked = $(event.target).is(':checked');
-            event.data.callback({confetti: checked});
+            var checked = $(ev.target).is(':checked');
+            ev.data.callback({confetti: checked});
           })
         .appendTo(kiosk_div);
       $('<label for="' + k_id + '">Confetti</label>').appendTo(kiosk_div);
@@ -222,7 +222,8 @@ g_kiosk_page_handlers['kiosks/award-presentations.kiosk'] = {
 //////////////////////////////////////////////////////////////////////////
 
 function show_config_qrcode_modal(event) {
-  var kiosk = event.data.parameters;  // parameters are { title, content }
+  var parameters = event.data.parameters;  // parameters are { title, content }
+  var callback = event.data.callback;
   $("#qrcode-content").val(g_url + "/vote.php");
   if (parameters) {
     if (parameters.title) {
@@ -232,10 +233,10 @@ function show_config_qrcode_modal(event) {
       $("#qrcode-content").val(parameters.content);
     }
   }
-  show_modal("#config_qrcode_modal", function(ev) {
+  show_modal("#config_qrcode_modal", function() {
     close_modal("#config_qrcode_modal");
-    event.data.callback({title: $("#qrcode-title").val(),
-                         content: $("#qrcode-content").val()});
+    callback({title: $("#qrcode-title").val(),
+              content: $("#qrcode-content").val()});
     return false;
   });
 }

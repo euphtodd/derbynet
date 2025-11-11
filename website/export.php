@@ -1,18 +1,15 @@
-<?php @session_start();
-
-require_once('inc/banner.inc');
-
-require_once('inc/data.inc');
-require_once('inc/authorize.inc');
-session_write_close();
-require_once('inc/name-mangler.inc');
-require_once('inc/awards.inc');
-require_once('inc/export-all.inc');
-
-require_permission(VIEW_RACE_RESULTS_PERMISSION);
-
-$workbook = export_all();
-
+<?php 
+  require_once('inc/theme-selector.inc');
+  @session_start();
+  require_once('inc/banner.inc');
+  require_once('inc/data.inc');
+  require_once('inc/authorize.inc');
+  session_write_close();
+  require_once('inc/name-mangler.inc');
+  require_once('inc/awards.inc');
+  require_once('inc/export-all.inc');
+  require_permission(VIEW_RACE_RESULTS_PERMISSION);
+  $workbook = export_all();
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,10 +59,15 @@ function workbook_json() {
    // END_JSON
 }
 </script>
+<?php pintwood_head_includes(); ?>
 </head>
 
 <body>
-<?php make_banner('Export Results'); ?>
+<?php
+  require_once('inc/header.inc');
+  require_once('inc/footer.inc');
+  replace_default_banner('Export Results', true, 'index.php');
+?>
 <div class="block_buttons" style="margin-top: 20px;">
 <input type="button" value="Everything As .xlsx" onclick="write_workbook('xlsx');"/>
 <input type="button" value="Everything As .ods" onclick="write_workbook('ods');"/>
@@ -76,5 +78,10 @@ function workbook_json() {
 <input type="button" value="Standings As .csv" onclick="write_sheet_csv('Standings');"/>
 <input type="button" value="Awards As .csv" onclick="write_sheet_csv('Awards');"/>
 </div>
+<?php
+  if (should_use_pintwood_theme()) {
+      add_pintwood_footer();
+  }
+?>
 </body>
 </html>

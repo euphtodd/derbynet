@@ -41,6 +41,10 @@ body.pintwood-dark a:hover {
     color: var(--pintwood-citrine);
 }
 
+tr.d0 td {
+    color: var(--pintwood-dark-bg);
+}
+
 /* Custom Header Styles */
 .pintwood-header {
     background: linear-gradient(135deg, var(--pintwood-darker-bg) 0%, var(--pintwood-dark-bg) 100%);
@@ -51,12 +55,14 @@ body.pintwood-dark a:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 100;
+    margin-bottom: 40px;
 }
 
 .pintwood-header .header-left {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex: 1;
 }
 
 .pintwood-header .back-button {
@@ -89,20 +95,48 @@ body.pintwood-dark a:hover {
 .pintwood-header .event-wordmark {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 24px;
     color: var(--pintwood-citrine);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.pintwood-header h1 {
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1;
+	text-align: left;
+}
+
+.pintwood-header h1 .top-line {
+	display: block;
+	color: var(--pintwood-muted-text);
+	font-size: 0.5em;
+	letter-spacing: 0.2em;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+
+.pintwood-header h1 .highlight {
+	display: block;
+	color: var(--pintwood-citrine);
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-left: -3px;
 }
 
 .pintwood-header .header-center {
-    flex-grow: 1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
+    pointer-events: none;
 }
 
 .pintwood-header .page-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 40px;
     color: var(--pintwood-light-text);
     margin: 0;
 }
@@ -110,6 +144,8 @@ body.pintwood-dark a:hover {
 .pintwood-header .header-right {
     display: flex;
     align-items: center;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .pintwood-header .title-sponsor img {
@@ -207,9 +243,9 @@ body.pintwood-dark .block_buttons a.button_link,
 body.pintwood-dark .block_buttons input[type='button'],
 body.pintwood-dark .block_buttons input[type='submit'],
 body.pintwood-dark .block_buttons .button_link {
-    background: var(--pintwood-sapphire);
-    color: white;
-    border: none;
+    background: var(--pintwood-citrine);
+    color: var(--pintwood-dark-bg);
+    border: 2px solid var(--pintwood-citrine);
     padding: 10px 20px;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
@@ -225,28 +261,58 @@ body.pintwood-dark .block_buttons a.button_link:hover,
 body.pintwood-dark .block_buttons input[type='button']:hover,
 body.pintwood-dark .block_buttons input[type='submit']:hover,
 body.pintwood-dark .block_buttons .button_link:hover {
-    background: var(--pintwood-citrine);
-    box-shadow: 0 4px 8px rgba(216, 154, 18, 0.3);
+    background: var(--pintwood-dark-bg);
+    border: 2px solid var(--pintwood-citrine);
+    color: var(--pintwood-citrine);
+    /* box-shadow: 0 4px 8px rgba(216, 154, 18, 0.3); */
 }
 
 /* Index Page buttons */
 body.pintwood-dark .block_buttons a.button_link.before_button,
 body.pintwood-dark .block_buttons input.before_button[type='submit'] {
-  background: var(--pintwood-citrine);
-  color: var(--pintwood-dark-bg);
+  background: var(--pintwood-muted-text);
+  border: 2px solid var(--pintwood-muted-text);
 }
+body.pintwood-dark .block_buttons a.button_link.before_button:hover,
+body.pintwood-dark .block_buttons input.before_button[type='submit']:hover {
+  background: var(--pintwood-dark-bg);
+  border: 2px solid var(--pintwood-muted-text);
+  color: var(--pintwood-muted-text);
+}
+
 body.pintwood-dark .block_buttons a.button_link.during_button,
 body.pintwood-dark .block_buttons input.during_button[type='submit'] {
-  background: var(--pintwood-sapphire);
+  background: var(--pintwood-citrine);
 }
+body.pintwood-dark .block_buttons a.button_link.during_button:hover,
+body.pintwood-dark .block_buttons input.during_button[type='submit']:hover {
+  background: var(--pintwood-dark-bg);
+  border: 2px solid var(--pintwood-citrine);
+  color: var(--pintwood-citrine);
+}
+
 body.pintwood-dark .block_buttons a.button_link.after_button,
 body.pintwood-dark .block_buttons input.after_button[type='submit'] {
-  background: var(--pintwood-garnet);
+  background: var(--pintwood-sapphire);
+  border: 2px solid var(--pintwood-sapphire);
+  color: var(--pintwood-light-text);
 }
+body.pintwood-dark .block_buttons a.button_link.after_button:hover,
+body.pintwood-dark .block_buttons input.after_button[type='submit']:hover {
+  background: var(--pintwood-dark-bg);
+  color: var(--pintwood-sapphire);
+}
+
 body.pintwood-dark .block_buttons a.button_link.other_button,
 body.pintwood-dark .block_buttons input.other_button[type='submit'] {
-  background: var(--pintwood-muted-text);
-  color: var(--pintwood-dark-bg);
+  background: var(--pintwood-garnet);
+  border: 2px solid var(--pintwood-garnet);
+  color: var(--pintwood-light-text);
+}
+body.pintwood-dark .block_buttons a.button_link.other_button:hover,
+body.pintwood-dark .block_buttons input.other_button[type='submit']:hover {
+  background: var(--pintwood-dark-bg);
+  color: var(--pintwood-garnet);
 }
 
 /* Form inputs in dark theme */
@@ -286,6 +352,15 @@ body.pintwood-dark.not-logged-in .admin-only-button {
 
 .modal_dialog p {
     font-size: 1em;
+}
+
+/* Identify Kiosk Styles */
+.logo-frame {
+    background: none;
+}
+
+.big-logo {
+    height: 300px;
 }
 
 /* Sponsor Kiosk Styles */

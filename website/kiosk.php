@@ -1,5 +1,6 @@
-<?php @session_start();
-
+<?php
+require_once('inc/theme-selector.inc');
+@session_start();
 require_once('inc/data.inc');
 require_once('inc/kiosks.inc');
 require_once('inc/permissions.inc');

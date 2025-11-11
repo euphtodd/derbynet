@@ -18,7 +18,8 @@
       "sponsors.kiosk.php",
       "ondeck.php",
       "now-racing.php",
-      "awards.php"
+      "awards.php",
+      "qrcode.php"
     ],
     "hide_buttons_when_not_logged_in": [
       ".control_group",

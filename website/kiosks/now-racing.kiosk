@@ -1,4 +1,6 @@
-<?php @session_start();
+<?php 
+require_once('inc/theme-selector.inc');
+@session_start();
 $nlanes = get_lane_count();
 $colors_info = read_raceinfo('lane-colors', '');
 $lane_colors = empty($colors_info) ? [] : explode(',', $colors_info);
@@ -44,9 +46,19 @@ $(function () {
 <script type="text/javascript">
 var g_linger_ms = <?php echo $linger_ms; ?>;
 </script>
+<?php pintwood_head_includes(); ?>
+<style>
+  .pintwood-header {
+    margin-bottom: 0px;
+}
+</style>
 </head>
 <body>
-<?php make_banner('Racing', /* back_button */ false); ?>
+<?php
+require_once('inc/header.inc');
+require_once('inc/footer.inc');
+replace_default_banner('Racing', false);
+?> 
 <?php if ($nlanes > 0) { ?>
 <table id="main-table">
 <tr id="table-headers">

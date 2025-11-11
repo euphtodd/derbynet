@@ -1,3 +1,7 @@
+<?php 
+require_once('inc/theme-selector.inc');
+@session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +19,14 @@
  ?>;
 </script>
 <script type="text/javascript" src="js/award-presentations-kiosk.js"></script>
+<?php pintwood_head_includes(); ?>
 </head>
 <body>
+<?php
+require_once('inc/header.inc');
+require_once('inc/footer.inc');
+replace_default_banner('Awards', false);
+?>
 <div class="award-background">
   <video class="confetti" muted="true" loop="true">
     <source src="confetti.webm" type="video/webm"/>
@@ -43,5 +53,10 @@
 </div>
 
 <?php require('inc/ajax-failure.inc'); ?>
+<?php
+if (should_use_pintwood_theme()) {
+    add_pintwood_footer();
+}
+?>
 </body>
 </html>

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -19,13 +18,13 @@ $(function () {
 <?php require('inc/stylesheet.inc'); ?>
 <link rel="stylesheet" type="text/css" href="css/kiosks.css"/>
 <link rel="stylesheet" type="text/css" href="css/big-logo.css"/>
+<?php pintwood_head_includes(); ?>
 </head>
 <body>
 <?php
-require_once('inc/banner.inc');
-make_banner('DerbyNet Kiosk', /* back_button */ false);
-
-// $g_kiosk_address is assigned in kiosk.php
+require_once('inc/header.inc');
+require_once('inc/footer.inc');
+replace_default_banner('Kiosk: ' . madlib_string($g_kiosk_address), false);
 ?>
  <p class="kiosk_title"><?php echo madlib_string($g_kiosk_address); ?></p>
  <p id="kiosk_name" class="kiosk_title"></p>
@@ -33,9 +32,14 @@ make_banner('DerbyNet Kiosk', /* back_button */ false);
    <p id="screensize"></p>
    <p><?php echo $g_kiosk_address; ?></p>
    <div class="logo-frame">
-     <img class="big-logo" src="img/derbynet-300.png"/>
+     <img class="big-logo" src="<?php echo file_exists('Images/Pintwood_Derby/pintwood-logo.png') ? 'Images/Pintwood_Derby/pintwood-logo.png' : 'img/derbynet-300.png'; ?>"/>
    </div>
  </div>
 <?php require_once('inc/ajax-failure.inc'); ?>
+<?php
+if (should_use_pintwood_theme()) {
+    add_pintwood_footer();
+}
+?>
 </body>
 </html>
