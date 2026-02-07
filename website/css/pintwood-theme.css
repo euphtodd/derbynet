@@ -148,11 +148,21 @@ tr.d0 td {
     justify-content: flex-end;
 }
 
-.pintwood-header .title-sponsor img {
+.pintwood-header .title-sponsor {
     display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.pintwood-header .title-sponsor-item {
+    display: flex;
+    align-items: center;
+}
+
+.pintwood-header .title-sponsor img {
+    display: block;
     max-height: 80px;
     width: auto;
-    padding: auto 0;
 }
 
 /* Sponsor Footer Styles */
@@ -233,6 +243,15 @@ body.pintwood-dark td {
 
 body.pintwood-dark tr:hover {
     background-color: rgba(216, 154, 18, 0.1);
+}
+
+/* Login page legend */
+body.pintwood-dark .block_buttons legend {
+    text-align: center;
+    width: 100%;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: var(--pintwood-light-text);
 }
 
 /* Buttons in dark theme */
@@ -370,41 +389,57 @@ body.pintwood-dark.not-logged-in .admin-only-button {
     background: linear-gradient(135deg, var(--pintwood-darker-bg) 0%, var(--pintwood-dark-bg) 100%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
     overflow: hidden;
 }
 
+.sponsor-kiosk .kiosk-header {
+    width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid var(--pintwood-citrine);
+}
+
+.sponsor-kiosk .kiosk-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--pintwood-citrine);
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .sponsor-kiosk .sponsor-display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    padding: 40px;
+    margin-top: -80px;
 }
 
 .sponsor-kiosk .sponsor-logo {
-    max-width: 80vw;
-    max-height: 60vh;
+    max-width: 70vw;
+    max-height: 45vh;
+    min-height: 300px;
     width: auto;
     height: auto;
     object-fit: contain;
 }
 
-.sponsor-kiosk .sponsor-name {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--pintwood-citrine);
-    margin-top: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
 .sponsor-kiosk .sponsor-tier-label {
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
+    font-size: 32px;
     color: var(--pintwood-muted-text);
-    margin-top: 10px;
+    margin-top: 30px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 @keyframes fadeIn {
@@ -466,13 +501,119 @@ body.pintwood-dark.not-logged-in .admin-only-button {
         margin: 5px 0;
     }
     
-    .sponsor-kiosk .sponsor-name {
-        font-size: 32px;
+    .sponsor-kiosk .kiosk-header h1 {
+        font-size: 36px;
+        padding: 20px 10px;
     }
-    
+
     .sponsor-kiosk .sponsor-tier-label {
-        font-size: 18px;
+        font-size: 20px;
     }
+
+    .sponsor-kiosk .sponsor-logo {
+        max-height: 40vh;
+        min-height: 200px;
+    }
+}
+
+/* Award Presentation Kiosk Overrides */
+body.pintwood-dark .award-background {
+    color: var(--pintwood-light-text);
+}
+
+body.pintwood-dark .award-trophy {
+    color: var(--pintwood-citrine);
+}
+
+/* QR Code Kiosk Overrides */
+body.pintwood-dark h2 {
+    color: var(--pintwood-citrine);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Now Racing Kiosk Overrides */
+body.pintwood-dark #main-table {
+    background-color: var(--pintwood-dark-bg);
+}
+
+body.pintwood-dark #main-table th {
+    background-color: var(--pintwood-darker-bg);
+    color: var(--pintwood-citrine);
+    border-color: var(--pintwood-dark-bg);
+}
+
+body.pintwood-dark #main-table td {
+    background-color: var(--pintwood-darker-bg);
+    color: var(--pintwood-light-text);
+    border-color: var(--pintwood-dark-bg);
+}
+
+/* Lane color overrides for dark theme */
+body.pintwood-dark td.lane {
+    background-color: var(--pintwood-darker-bg);
+    color: var(--pintwood-citrine);
+    font-weight: 600;
+}
+
+body.pintwood-dark td.place {
+    background-color: var(--pintwood-darker-bg);
+    color: var(--pintwood-citrine);
+    font-weight: 700;
+}
+
+/* Override lane color row backgrounds to use dark theme colors */
+body.pintwood-dark td.blue_row_color,
+body.pintwood-dark tr.d0 td.blue_row_color {
+    background: linear-gradient(to bottom, #0066ff 0, #0066ff 5%,
+                                var(--pintwood-darker-bg) 6%, var(--pintwood-darker-bg) 94%,
+                                #0066ff 95%, #0066ff) !important;
+}
+
+body.pintwood-dark td.green_row_color,
+body.pintwood-dark tr.d0 td.green_row_color {
+    background: linear-gradient(to bottom, #00dd00 0, #00dd00 5%,
+                                var(--pintwood-darker-bg) 6%, var(--pintwood-darker-bg) 94%,
+                                #00dd00 95%, #00dd00) !important;
+}
+
+body.pintwood-dark td.orange_row_color,
+body.pintwood-dark tr.d0 td.orange_row_color {
+    background: linear-gradient(to bottom, #ff8c00 0, #ff8c00 5%,
+                                var(--pintwood-darker-bg) 6%, var(--pintwood-darker-bg) 94%,
+                                #ff8c00 95%, #ff8c00) !important;
+}
+
+body.pintwood-dark td.pink_row_color,
+body.pintwood-dark tr.d0 td.pink_row_color {
+    background: linear-gradient(to bottom, #ff99bb 0, #ff99bb 5%,
+                                var(--pintwood-darker-bg) 6%, var(--pintwood-darker-bg) 94%,
+                                #ff99bb 95%, #ff99bb) !important;
+}
+
+body.pintwood-dark td.purple_row_color,
+body.pintwood-dark tr.d0 td.purple_row_color {
+    background: linear-gradient(to bottom, #aa00aa 0, #aa00aa 5%,
+                                var(--pintwood-darker-bg) 6%, var(--pintwood-darker-bg) 94%,
+                                #aa00aa 95%, #aa00aa) !important;
+}
+
+body.pintwood-dark td.red_row_color,
+body.pintwood-dark tr.d0 td.red_row_color {
+    background: linear-gradient(to bottom, #ff3333 0, #ff3333 5%,
+                                var(--pintwood-darker-bg) 6%, var(--pintwood-darker-bg) 94%,
+                                #ff3333 95%, #ff3333) !important;
+}
+
+body.pintwood-dark td.yellow_row_color,
+body.pintwood-dark tr.d0 td.yellow_row_color {
+    background: linear-gradient(to bottom, #ffff00 0, #ffff00 5%,
+                                var(--pintwood-darker-bg) 6%, var(--pintwood-darker-bg) 94%,
+                                #ffff00 95%, #ffff00) !important;
+}
+
+body.pintwood-dark td.none_row_color {
+    background-color: var(--pintwood-darker-bg) !important;
 }
 
 /* Print styles */
@@ -481,8 +622,341 @@ body.pintwood-dark.not-logged-in .admin-only-button {
     .sponsor-footer {
         display: none;
     }
-    
+
     body.pintwood-dark.has-sponsor-footer {
         padding-bottom: 0;
     }
+}
+
+/* ========================================
+   RACER RESULTS PAGE STYLES
+   ======================================== */
+
+/* Scoped to racer-results-page to avoid affecting other pages */
+body.racer-results-page.pintwood-dark {
+  background: linear-gradient(135deg, #1e1e1e 0%, #231F20 100%);
+  padding-bottom: 40px;
+}
+
+/* Now Racing Header */
+body.racer-results-page.pintwood-dark .running_round {
+  background: linear-gradient(90deg, rgba(27, 118, 188, 0.2) 0%, rgba(216, 154, 18, 0.2) 100%);
+  border-left: 5px solid var(--pintwood-citrine);
+  padding: 15px 20px;
+  margin: 20px 0 30px 0;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.racer-results-page.pintwood-dark .running_round span {
+  color: var(--pintwood-citrine);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+body.racer-results-page.pintwood-dark .running_round a {
+  color: var(--pintwood-sapphire);
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+body.racer-results-page.pintwood-dark .running_round a:hover {
+  color: var(--pintwood-citrine);
+}
+
+/* Main Table Container */
+body.racer-results-page.pintwood-dark .scroll-bounding-rect {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0 auto;
+  max-width: 95%;
+}
+
+/* Table Base Styles */
+body.racer-results-page.pintwood-dark table.main_table {
+  width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0 auto;
+}
+
+/* Group Spacing - Make spacing rows completely invisible */
+body.racer-results-page.pintwood-dark tbody > tr:first-child {
+  background: transparent !important;
+}
+
+body.racer-results-page.pintwood-dark tbody > tr:first-child th,
+body.racer-results-page.pintwood-dark tbody > tr:first-child td {
+  background: transparent !important;
+  border: none !important;
+  padding: 20px 0;
+}
+
+body.racer-results-page.pintwood-dark .group_spacer {
+  height: 40px;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Round Headers - Bold and Prominent */
+body.racer-results-page.pintwood-dark .group_title {
+  background: linear-gradient(135deg, var(--pintwood-citrine) 0%, #B87F0F 100%);
+  color: var(--pintwood-dark-bg);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(216, 154, 18, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Current Group Highlighting with Garnet Accent */
+body.racer-results-page.pintwood-dark .curgroup .pre_group_title {
+  text-align: center;
+}
+
+body.racer-results-page.pintwood-dark .curgroup .group_title,
+body.racer-results-page.pintwood-dark .curgroup .pre_group_title {
+  background: linear-gradient(180deg, var(--pintwood-garnet) 0%, #7a0101 100%);
+  color: white;
+}
+
+body.racer-results-page.pintwood-dark .curgroup .group_title,
+body.racer-results-page.pintwood-dark .curgroup .pre_group_title {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.racer-results-page.pintwood-dark tbody.curgroup > tr:nth-of-type(2) {
+  border: 3px solid var(--pintwood-citrine);
+}
+
+/* @keyframes pulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(154, 1, 1, 0.4), 0 0 0 2px rgba(216, 154, 18, 0.3); }
+  50% { box-shadow: 0 4px 20px rgba(154, 1, 1, 0.8), 0 0 0 2px rgba(216, 154, 18, 0.6); }
+} */
+
+/* Column Headers - Solid Color */
+body.racer-results-page.pintwood-dark table.main_table > tbody > tr:nth-of-type(3) th {
+  background: var(--pintwood-sapphire) !important;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 15px 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Racer Row Headers (left column with names) */
+body.racer-results-page.pintwood-dark table.main_table tbody tr th {
+  background: linear-gradient(90deg, #2a4a6a 0%, var(--pintwood-sapphire) 100%);
+  color: white;
+  padding: 15px;
+  text-align: right;
+  vertical-align: middle;
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+}
+
+body.racer-results-page.pintwood-dark table.main_table tbody tr th.nrows1 {
+  min-width: 350px;
+}
+
+/* Current Group Racer Headers with Garnet Accent */
+body.racer-results-page.pintwood-dark table.main_table .curgroup tbody tr th {
+  background: linear-gradient(90deg, #6a1a1a 0%, var(--pintwood-garnet) 100%);
+  border: 2px solid var(--pintwood-citrine);
+}
+
+/* body.racer-results-page.pintwood-dark table.main_table tbody:not(tr.curgroup) tr th.group_title {
+  border-radius: 0px;
+  background: linear-gradient(270deg, #2a4a6a 0%, var(--pintwood-sapphire) 100%);
+  color: white;
+} */
+
+/* Racer Photos */
+body.racer-results-page.pintwood-dark img.racer-photo {
+  height: 68px;
+  width: auto;
+  border-radius: 6px;
+  border: 2px solid rgba(216, 154, 18, 0.4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Racer Label Styling */
+/* Set up the TH cell as a positioning context */
+body.racer-results-page.pintwood-dark .nrows1,
+body.racer-results-page.pintwood-dark .nrows2,
+body.racer-results-page.pintwood-dark .nrows3,
+body.racer-results-page.pintwood-dark .nrows4 {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+/* Photos container on the left */
+body.racer-results-page.pintwood-dark .racer-photos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Racer label on the right */
+body.racer-results-page.pintwood-dark .racer_label {
+  display: flex;
+  text-align: right;
+}
+
+body.racer-results-page.pintwood-dark .racer_label .racer {
+  /* position: relative; */
+  display: flex;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 2;
+}
+
+body.racer-results-page.pintwood-dark .racer_label .car {
+  position: absolute;
+  bottom: -25px;
+  right: 10px;
+  z-index: 1;
+  font-size: 100px;
+  font-style: italic;
+  font-weight: 900;
+  color: rgba(216, 154, 18, 0.2);
+  font-family: 'Roboto', sans-serif;
+  user-select: none;
+}
+
+
+/* Result Cells - Alternating Dark Rows with Better Contrast */
+body.racer-results-page.pintwood-dark table.main_table tbody tr.d0 td {
+  background-color: #2a2a2a;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.racer-results-page.pintwood-dark table.main_table tbody tr.d1 td {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Cell Padding and Sizing */
+body.racer-results-page.pintwood-dark table.main_table td {
+  padding: 18px 14px;
+  text-align: center;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+  max-width: 150px;
+}
+
+/* Time Display - Large and Prominent */
+body.racer-results-page.pintwood-dark td span.time {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--pintwood-light-text);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  display: inline-block;
+}
+
+/* Empty/Bye Cells */
+body.racer-results-page.pintwood-dark td:empty,
+body.racer-results-page.pintwood-dark td:contains("--") {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 24px;
+}
+
+/* Current Heat Highlighting */
+body.racer-results-page.pintwood-dark .curheat {
+  border: 3px solid var(--pintwood-citrine);
+  box-shadow: 0 0 15px rgba(216, 154, 18, 0.5);
+}
+
+body.racer-results-page.pintwood-dark .curheat td {
+  background-color: rgba(216, 154, 18, 0.2);
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { background-color: rgba(216, 154, 18, 0.2); }
+  50% { background-color: rgba(216, 154, 18, 0.35); }
+}
+
+/* In Previous Heat Indicators */
+body.racer-results-page.pintwood-dark td.in_prev {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body.racer-results-page.pintwood-dark .d1 td.in_prev {
+  background-image: url(../img/chevron-up-tan.svg);
+}
+
+body.racer-results-page.pintwood-dark .d0 td.in_prev {
+  background-image: url(../img/chevron-up-white.svg);
+}
+
+/* Buttons at Bottom */
+body.racer-results-page.pintwood-dark .block_buttons {
+  text-align: center;
+  margin: 40px 0 20px 0;
+  padding: 20px;
+}
+
+/* Racer Link Styling */
+body.racer-results-page.pintwood-dark .racer_link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Responsive Design for Racer Results */
+@media (max-width: 1024px) {
+  body.racer-results-page.pintwood-dark td span.time {
+    font-size: 28px;
+  }
+
+  body.racer-results-page.pintwood-dark .group_title {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  body.racer-results-page.pintwood-dark table.main_table > tbody > tr:nth-of-type(3) th {
+    font-size: 16px;
+    padding: 12px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  body.racer-results-page.pintwood-dark td span.time {
+    font-size: 24px;
+  }
+
+  body.racer-results-page.pintwood-dark .group_title {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  body.racer-results-page.pintwood-dark table.main_table tbody tr th {
+    min-width: 150px;
+    font-size: 14px;
+  }
+
+  body.racer-results-page.pintwood-dark img.racer-photo {
+    height: 50px;
+  }
 }

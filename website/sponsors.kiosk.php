@@ -25,6 +25,9 @@ require_once('inc/sponsors.inc');
 </head>
 <body class="pintwood-dark">
     <div class="sponsor-kiosk" id="sponsorKiosk">
+        <div class="kiosk-header">
+            <h1>Thank You to Our Sponsors</h1>
+        </div>
         <div class="sponsor-display" id="sponsorDisplay">
             <!-- Content will be dynamically inserted here -->
         </div>
@@ -61,9 +64,8 @@ require_once('inc/sponsors.inc');
             // Update content
             var html = '';
             html += '<img src="' + sponsor.logo + '" alt="' + sponsor.name + '" class="sponsor-logo">';
-            html += '<div class="sponsor-name">' + sponsor.name + '</div>';
             html += '<div class="sponsor-tier-label">' + getTierLabel(sponsor.tier) + '</div>';
-            
+
             displayElement.innerHTML = html;
             
             // Move to next sponsor

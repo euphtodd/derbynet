@@ -17,7 +17,7 @@ function notice_change_current_tbody(tbodyid, round, classname) {
 	$("#tbody_" + tbodyid).addClass("curgroup");
     var curgroup = $(".curgroup .pre_group_title");
     if (curgroup.length > 0) {
-	  curgroup.html("Now<br/>Racing");
+	  curgroup.html("Now Racing");
     } else {
       // TODO console.log("Can't find title for new tbody " + tbodyid);
     }

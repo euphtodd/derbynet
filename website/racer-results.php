@@ -60,7 +60,7 @@ if (isset($as_kiosk)) {
 <!-- Pintwood Theme Integration -->
 <?php pintwood_head_includes(); ?>
 </head>
-<body>
+<body class="racer-results-page">
 <?php
 
   // Include our custom header and footer handlers
@@ -186,17 +186,24 @@ foreach ($rounds as $round) {
       $racerid = $rs['racerid'];
       $racer_label = '';
       // 68h images completely fill one row's height
+      $has_photos = false;
+      $photos_html = '';
       if ($rs['imagefile'] && $show_racer_photos) {
         $head_url = headshots()->url_for_racer($rs, RENDER_RACER_RESULTS);
-        $racer_label .= "<img src=\"$head_url\" class=\"racer-photo\"/>";
+        $photos_html .= "<img src=\"$head_url\" class=\"racer-photo\"/>";
+        $has_photos = true;
       }
       if (isset($rs['carphoto']) && $rs['carphoto'] && $show_car_photos) {
         $car_url = car_photo_repository()->url_for_racer($rs, RENDER_RACER_RESULTS);
-        $racer_label .= "<img src=\"$car_url\" class=\"racer-photo\"/>";
+        $photos_html .= "<img src=\"$car_url\" class=\"racer-photo\"/>";
+        $has_photos = true;
+      }
+      if ($has_photos) {
+        $racer_label .= '<div class="racer-photos">' . $photos_html . '</div>';
       }
       $racer_label .= '<div class="racer_label"><span class="racer">'
         .htmlspecialchars(mangled_name($rs, $name_style), ENT_QUOTES, 'UTF-8').'</span>'
-		.' (<span class="car">'.$rs['carnumber'].'</span>)</div>';
+		.' <span class="car">'.$rs['carnumber'].'</span></div>';
       $racer_cells = array();
       for ($i = 1; $i <= $nlanes; ++$i) {
 		$racer_cells[] = array();

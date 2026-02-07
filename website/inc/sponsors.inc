@@ -58,26 +58,32 @@ function get_sponsor_path($logo) {
 function render_title_sponsor() {
     $sponsor_data = load_sponsors();
     $keg_sponsors = $sponsor_data['sponsors']['keg'];
-    
+
     if (empty($keg_sponsors)) {
         return '';
     }
-    
-    $sponsor = $keg_sponsors[0]; // Get first (and typically only) title sponsor
-    $logo_path = get_sponsor_path($sponsor['logo']);
+
     $size = $sponsor_data['config']['logo_sizes']['keg'];
-    
     $html = '<div class="title-sponsor">';
-    if (!empty($sponsor['url'])) {
-        $html .= '<a href="' . htmlspecialchars($sponsor['url']) . '" target="_blank">';
+
+    // Display all keg tier sponsors
+    foreach ($keg_sponsors as $sponsor) {
+        $logo_path = get_sponsor_path($sponsor['logo']);
+
+        $html .= '<div class="title-sponsor-item">';
+        if (!empty($sponsor['url'])) {
+            $html .= '<a href="' . htmlspecialchars($sponsor['url']) . '" target="_blank">';
+        }
+        $html .= '<img src="' . htmlspecialchars($logo_path) . '" ';
+        $html .= 'alt="' . htmlspecialchars($sponsor['name']) . '" />';
+        if (!empty($sponsor['url'])) {
+            $html .= '</a>';
+        }
+        $html .= '</div>';
     }
-    $html .= '<img src="' . htmlspecialchars($logo_path) . '" ';
-    $html .= 'alt="' . htmlspecialchars($sponsor['name']) . '" />';
-    if (!empty($sponsor['url'])) {
-        $html .= '</a>';
-    }
+
     $html .= '</div>';
-    
+
     return $html;
 }
 

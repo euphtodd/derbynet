@@ -46,18 +46,11 @@ $(function () {
 <script type="text/javascript">
 var g_linger_ms = <?php echo $linger_ms; ?>;
 </script>
-<?php pintwood_head_includes(); ?>
-<style>
-  .pintwood-header {
-    margin-bottom: 0px;
-}
-</style>
 </head>
 <body>
 <?php
-require_once('inc/header.inc');
-require_once('inc/footer.inc');
-replace_default_banner('Racing', false);
+require_once('inc/banner.inc');
+make_banner('Derby Racing Main Board');
 ?> 
 <?php if ($nlanes > 0) { ?>
 <table id="main-table">
