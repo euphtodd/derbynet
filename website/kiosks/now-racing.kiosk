@@ -27,6 +27,30 @@ require_once('inc/banner.inc');
 <script type="text/javascript" src="js/now-racing-poller.js"></script>
 <script type="text/javascript" src="js/now-racing.js"></script>
 <script type="text/javascript" src="js/now-racing-adjust-fonts.js"></script>
+<?php pintwood_head_includes(); ?>
+<style>
+body.now-racing-page .pintwood-header {
+    margin-bottom: 0;
+    padding: 8px 20px;
+}
+body.now-racing-page .pintwood-header .event-logo img {
+    max-height: 50px;
+}
+body.now-racing-page .pintwood-header .title-sponsor img {
+    max-height: 50px;
+}
+body.now-racing-page .pintwood-header h1 {
+    font-size: 22px;
+}
+body.now-racing-page .pintwood-header .page-title {
+    font-size: 30px;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() { resize_table(); }, 50);
+});
+</script>
 <?php if (@$simulated_polling_url) { ?>
 <script type="text/javascript" src="<?php echo @$simulated_polling_url; ?>"></script>
 <?php } ?>
@@ -47,11 +71,15 @@ $(function () {
 var g_linger_ms = <?php echo $linger_ms; ?>;
 </script>
 </head>
-<body>
+<body class="now-racing-page">
 <?php
 require_once('inc/banner.inc');
 make_banner('Derby Racing Main Board');
-?> 
+require_once('inc/header.inc');
+if (should_use_pintwood_theme()) {
+    replace_default_banner('Derby Racing Main Board', false);
+}
+?>
 <?php if ($nlanes > 0) { ?>
 <table id="main-table">
 <tr id="table-headers">

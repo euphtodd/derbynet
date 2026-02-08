@@ -540,13 +540,13 @@ body.pintwood-dark #main-table {
 body.pintwood-dark #main-table th {
     background-color: var(--pintwood-darker-bg);
     color: var(--pintwood-citrine);
-    border-color: var(--pintwood-dark-bg);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 body.pintwood-dark #main-table td {
     background-color: var(--pintwood-darker-bg);
     color: var(--pintwood-light-text);
-    border-color: var(--pintwood-dark-bg);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Lane color overrides for dark theme */
@@ -614,6 +614,33 @@ body.pintwood-dark tr.d0 td.yellow_row_color {
 
 body.pintwood-dark td.none_row_color {
     background-color: var(--pintwood-darker-bg) !important;
+}
+
+/* Reset generic table styles for now-racing */
+body.pintwood-dark #main-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 0;
+    overflow: visible;
+}
+
+body.pintwood-dark #main-table td {
+    padding: 0;
+}
+
+body.pintwood-dark #main-table th {
+    padding: 0 4px;
+    text-align: center;
+}
+
+body.pintwood-dark #main-table tr:hover {
+    background-color: transparent;
+}
+
+/* Flying place indicator */
+body.pintwood-dark .flying {
+    background-color: var(--pintwood-citrine);
+    color: var(--pintwood-dark-bg);
 }
 
 /* Print styles */

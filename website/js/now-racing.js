@@ -1,4 +1,8 @@
 
+function now_racing_text_color() {
+    return document.body.classList.contains('pintwood-dark') ? '#f5f5f5' : 'black';
+}
+
 // This function receives messages from the surrounding replay kiosk, if there
 // is one.
 function on_message(msg) {
@@ -115,10 +119,11 @@ var Lineup = {
               title += ', round ' + current['round'];
             }
           }
-          $('.banner_title').text(title);
+          $('.banner_title, .pintwood-header .page-title').text(title);
         } else {
-          $('.banner_title').text((round_class_name ? round_class_name + ', ' : '')
-                                  + 'Heat ' + this.heat + ' of ' + nheats);
+          $('.banner_title, .pintwood-header .page-title').text(
+              (round_class_name ? round_class_name + ', ' : '')
+              + 'Heat ' + this.heat + ' of ' + nheats);
         }
       }
 
@@ -236,7 +241,7 @@ var FlyerAnimation = {
   // object -- it passes around all the state it needs.
   animate_flyers: function(place, place_to_lane, completed) {
     if (place >= place_to_lane.length) {
-      $('.place').css({color: 'black'});
+      $('.place').css({color: now_racing_text_color()});
       $('.flying').animate({opacity: 0}, 1000);
       completed();
     } else {
@@ -314,14 +319,14 @@ function process_polling_result(data) {
       place_to_lane[parseInt(place)] = lane;
 
       $('[data-lane="' + lane + '"] .time')
-        .css({color: 'black'})
+        .css({color: now_racing_text_color()})
         .text(Number.parseFloat(hr.time).toFixed(precision));
       if (FlyerAnimation.ok_to_animate) {
         $('[data-lane="' + lane + '"] .place').css({color: 'rgba(0,0,0,0)'});
       }
       $('[data-lane="' + lane + '"] .place span').text(place);
       if (hr.speed != '') {
-        $('[data-lane="' + lane + '"] .speed').text(hr.speed).css({color: 'black'});
+        $('[data-lane="' + lane + '"] .speed').text(hr.speed).css({color: now_racing_text_color()});
       }
     }
 
@@ -349,7 +354,10 @@ function resize_table() {
   // the new window size.  We temporarily remove the photos and rely on
   // process_new_heat, above, to repopulate with different-sized photos.
   $("table td.photo").empty();
-  $("table").css({height: $(window).height() - 60});
+  var header = $(".pintwood-header");
+  var header_height = header.length > 0 ? header.outerHeight(true) : 60;
+  var border_allowance = parseInt($("#main-table td").css('border-bottom-width')) || 0;
+  $("table").css({height: $(window).height() - header_height - border_allowance});
 
   var place = $('[data-lane="1"] .place');
   var btop = parseInt(place.css('border-top'));
