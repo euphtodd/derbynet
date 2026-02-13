@@ -525,6 +525,138 @@ body.pintwood-dark .award-trophy {
     color: var(--pintwood-citrine);
 }
 
+/* ========================================
+   AWARDS PRESENTATION DASHBOARD STYLES
+   ======================================== */
+
+/* Fix layout: move dropdowns into the left half above the list */
+body.pintwood-dark .center-select {
+    width: 45%;
+    margin-left: 2.5%;
+    margin-right: auto;
+}
+
+/* Adjust listview top to account for header + dropdowns */
+body.pintwood-dark .listview {
+    top: 280px;
+}
+
+/* Dark theme for mselect dropdowns */
+body.pintwood-dark div.mselect-inner {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--pintwood-light-text);
+    text-shadow: none;
+}
+
+body.pintwood-dark div.mselect-inner:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+body.pintwood-dark div.mselect-inner span {
+    color: var(--pintwood-light-text);
+}
+
+/* Dark theme for list items */
+body.pintwood-dark .mlistview > li {
+    border-color: rgba(255, 255, 255, 0.15);
+    color: var(--pintwood-light-text);
+}
+
+body.pintwood-dark .mlistview > li.button {
+    color: var(--pintwood-light-text);
+}
+
+body.pintwood-dark .mlistview > li.button:hover {
+    background-color: rgba(216, 154, 18, 0.15);
+}
+
+body.pintwood-dark .mlistview > li span {
+    color: var(--pintwood-light-text);
+}
+
+body.pintwood-dark .mlistview > li p {
+    color: var(--pintwood-muted-text);
+}
+
+body.pintwood-dark .mlistview > li.adhoc {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Selected/active list item */
+body.pintwood-dark .mlistview > li.selected {
+    background-color: rgba(216, 154, 18, 0.2);
+    border-color: var(--pintwood-citrine);
+}
+
+/* Presenter panel (right side) */
+body.pintwood-dark .presenter {
+    color: var(--pintwood-light-text);
+}
+
+body.pintwood-dark .presenter h3 {
+    color: var(--pintwood-citrine);
+}
+
+body.pintwood-dark .presenter p.moot {
+    color: var(--pintwood-muted-text);
+}
+
+body.pintwood-dark .presenter .detail {
+    color: var(--pintwood-light-text);
+}
+
+/* Kiosk warning notice */
+body.pintwood-dark #kiosk-summary h3 {
+    color: var(--pintwood-garnet);
+}
+
+/* Flipswitch dark theme */
+body.pintwood-dark div.flipswitch {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--pintwood-light-text);
+}
+
+body.pintwood-dark div.flipswitch .on {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--pintwood-light-text);
+}
+
+body.pintwood-dark div.flipswitch .off {
+    color: var(--pintwood-muted-text);
+}
+
+body.pintwood-dark div.flipswitch.checked {
+    background-color: var(--pintwood-sapphire);
+    border-color: var(--pintwood-sapphire);
+    color: white;
+}
+
+body.pintwood-dark div.flipswitch.checked .on {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+body.pintwood-dark div.flipswitch.checked .off {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Pack awards radio section */
+body.pintwood-dark .pack-awards {
+    color: var(--pintwood-light-text);
+}
+
+body.pintwood-dark .pack-awards label {
+    color: var(--pintwood-muted-text);
+}
+
+body.pintwood-dark .pack-awards label span.group-name {
+    color: var(--pintwood-citrine);
+}
+
 /* QR Code Kiosk Overrides */
 body.pintwood-dark h2 {
     color: var(--pintwood-citrine);
