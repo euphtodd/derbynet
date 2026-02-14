@@ -38,8 +38,8 @@ function apply_pintwood_theme() {
         // Add dark theme class to body
         echo '<script>document.addEventListener("DOMContentLoaded", function() { document.body.classList.add("pintwood-dark"); });</script>';
         
-        // Include the custom CSS
-        echo '<link rel="stylesheet" href="css/pintwood-theme.css">';
+        // Include the custom CSS with cache-busting
+        echo '<link rel="stylesheet" href="css/pintwood-theme.css?v=2">';
         
         // Check if user is logged in (you may need to adjust this based on DerbyNet's session handling)
         session_start();

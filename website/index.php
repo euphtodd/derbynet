@@ -51,6 +51,7 @@ function make_spacer_if($cond) {
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pinewood Derby Race Information</title>
 <?php require('inc/stylesheet.inc'); ?>
 
@@ -74,14 +75,17 @@ div.index_column {
   display: flex;
 }
 
-.block_buttons a.button_link {
-  width: 200px;
-  height: auto;
-}
+/* Desktop styles only - mobile handled by pintwood-theme.css */
+@media (min-width: 768px) {
+  .block_buttons a.button_link {
+    width: 200px;
+    height: auto;
+  }
 
-.block_buttons .double a.button_link {
-  width: 75px;
-  padding: 10px;
+  .block_buttons .double a.button_link {
+    width: 75px;
+    padding: 10px;
+  }
 }
 
 </style>
@@ -151,7 +155,7 @@ if ($two_columns) {
 // *********** After ***************
 $need_spacer = make_link_button('Present Awards', 'awards-presentation.php', PRESENT_AWARDS_PERMISSION, 'after_button');
 $need_spacer = make_link_button('Standings', 'standings.php', VIEW_AWARDS_PERMISSION, 'after_button') || $need_spacer;
-$need_spacer = make_link_button('Export Results', 'export.php', VIEW_RACE_RESULTS_PERMISSION, 'after_button') || $need_spacer;
+$need_spacer = make_link_button('Export Results', 'export.php', VIEW_AWARDS_PERMISSION, 'after_button') || $need_spacer;
 
 $need_spacer = make_link_button('Retrospective', 'history.php', SET_UP_PERMISSION, 'after_button') || $need_spacer;
 
@@ -159,7 +163,7 @@ make_spacer_if($need_spacer);
 
 // *********** Other ***************
 make_link_button('Printables', 'print.php', ASSIGN_RACER_IMAGE_PERMISSION, 'other_button');
-make_link_button('About', 'about.php', -1, 'other_button');
+make_link_button('About', 'about.php', VIEW_AWARDS_PERMISSION, 'other_button');
 
 if (@$_SESSION['role']) {
   make_link_button('Log out', 'login.php?logout', -1, 'other_button');

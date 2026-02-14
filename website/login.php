@@ -15,6 +15,7 @@ require_once('inc/locked.inc');
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Please Log In</title>
 <?php require('inc/stylesheet.inc'); ?>
 <style type="text/css">
@@ -32,22 +33,44 @@ require_once('inc/locked.inc');
 #login-kiosk {
   position: fixed;
   bottom: 20px;
-/*  left: 1em;
-  padding: 1em; */
   width: 25em;
   left: 50%;
   margin-left: -12.5em;
 }
 
-#camera_button {
-  padding-bottom: 15px;
-  padding-top: 5px;
-  font-size: 22px;
-  height: 20px;
-  width: 150px;
-}
+#camera_button,
 #kiosk_button {
-  margin-bottom: 6px;
+  padding: 12px 20px !important;
+  font-size: 18px !important;
+  min-height: 44px !important;
+  height: auto !important;
+  margin-bottom: 12px;
+  width: 100% !important;
+  display: block !important;
+  text-align: center;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  #login-kiosk {
+    position: relative;
+    width: 90%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: auto;
+    left: auto;
+    padding: 0;
+  }
+
+  #camera_button,
+  #kiosk_button {
+    width: 100% !important;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
 }
 </style>
 <script type="text/javascript" src="js/jquery.js"></script>

@@ -7,6 +7,7 @@ require_once('inc/banner.inc');
 require_once('inc/photo-config.inc');
 ?><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DerbyNet Slideshow</title>
     <script type="text/javascript" src="js/jquery.js"></script>
 <?php if (isset($as_kiosk)) require_once('inc/kiosk-poller.inc'); ?>

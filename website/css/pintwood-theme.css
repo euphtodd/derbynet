@@ -456,39 +456,62 @@ body.pintwood-dark.not-logged-in .admin-only-button {
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     .pintwood-header {
-        padding: 10px 15px;
+        padding: 8px 15px;
         flex-wrap: wrap;
+        margin-bottom: 20px;
     }
-    
+
+    .pintwood-header .event-logo img {
+        max-height: 50px;
+    }
+
     .pintwood-header .event-wordmark {
-        font-size: 18px;
+        gap: 0;
     }
-    
-    .pintwood-header .page-title {
+
+    .pintwood-header h1 {
         font-size: 20px;
+        line-height: 1.2;
     }
-    
-    .pintwood-header .event-logo img,
+
+    .pintwood-header .header-center {
+        display: none;
+    }
+
+    .pintwood-header .page-title {
+        display: none;
+    }
+
+    .pintwood-header .header-right {
+        width: 100%;
+        justify-content: center;
+        margin-top: 8px;
+    }
+
+    .pintwood-header .title-sponsor {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
     .pintwood-header .title-sponsor img {
         max-height: 40px;
     }
-    
-    .sponsor-footer {
-        padding: 10px;
+
+    div.index_background {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
     }
-    
-    .sponsor-footer .sponsor-container {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+
+    div.index_column {
+        flex-direction: column;
     }
-    
-    .sponsor-footer .sponsor-tier {
-        gap: 10px;
-    }
-    
-    body.pintwood-dark.has-sponsor-footer {
-        padding-bottom: 150px;
+
+    .block_buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
