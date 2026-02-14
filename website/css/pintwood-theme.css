@@ -1119,3 +1119,68 @@ body.racer-results-page.pintwood-dark .racer_link {
     height: 50px;
   }
 }
+
+/* Mobile Button Sizing */
+@media (max-width: 768px) {
+  .block_buttons input[type='button'],
+  .block_buttons input[type='submit'],
+  .block_buttons a.button_link {
+    width: 90%;
+    max-width: 300px;
+    padding: 12px 20px;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .block_buttons .double {
+    width: 95%;
+    max-width: 350px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .block_buttons .double a.button_link {
+    width: 100%;
+  }
+
+  .block_buttons input.mini {
+    width: 90%;
+    max-width: 250px;
+    padding: 8px 15px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .block_buttons input[type='button'],
+  .block_buttons input[type='submit'],
+  .block_buttons a.button_link {
+    width: 95%;
+    max-width: 100%;
+    padding: 14px 16px;
+    font-size: 18px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .block_buttons .double {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .block_buttons .double a.button_link {
+    width: 40%;
+    max-width: none;
+    min-height: 45px;
+  }
+
+  .block_buttons input.mini {
+    width: 95%;
+    max-width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+}
