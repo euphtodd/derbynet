@@ -26,6 +26,11 @@
         "name": "Pint Sponsor 1",
         "logo": "pint/sponsor1.png",
         "url": ""
+      },
+      {
+        "name": "Raising Cane's",
+        "logo": "pint/canes-logo.png",
+        "url": ""
       }
     ]
   },
