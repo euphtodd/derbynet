@@ -249,9 +249,6 @@ $stmt->closeCursor();
 ?>
 </div>
 <?php require_once('inc/ajax-failure.inc'); 
-if (should_use_pintwood_theme()) {
-    add_pintwood_footer();
-}
 ?>
 </body>
 </html>

@@ -49,9 +49,4 @@ if (should_use_pintwood_theme()) { replace_default_banner('Standings', false); }
 </table>
 <?php require('inc/ajax-failure.inc'); ?>
 </body>
-<?php
-if (should_use_pintwood_theme()) {
-    add_pintwood_footer();
-}
-?>
 </html>

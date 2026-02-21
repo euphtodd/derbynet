@@ -75,11 +75,6 @@ replace_default_banner('Racers On Deck', isset($as_kiosk) ? '' : 'index.php');
   <input type="button" value="Close"
     onclick='close_modal("#photo_view_modal");'/>
 </div>
-<?php
-if (should_use_pintwood_theme()) {
-    add_pintwood_footer();
-}
-?>
 </body>
 </html>
 

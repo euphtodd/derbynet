@@ -53,10 +53,5 @@ replace_default_banner('Awards', false);
 </div>
 
 <?php require('inc/ajax-failure.inc'); ?>
-<?php
-if (should_use_pintwood_theme()) {
-    add_pintwood_footer();
-}
-?>
 </body>
 </html>

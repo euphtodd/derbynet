@@ -32,10 +32,10 @@ body.pintwood-dark {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
-  padding: 20px 40px 0;
-  gap: 28px;
+  padding: 20px 40px;
+  gap: 0;
 }
 
 /* "Welcome to the inaugural" */
@@ -71,7 +71,7 @@ body.pintwood-dark {
 .welcome-wordmark .top-line {
   display: block;
   color: var(--pintwood-muted-text);
-  font-size: clamp(14px, 1.8vw, 24px);
+  font-size: clamp(22px, 3vw, 42px);
   letter-spacing: 0.25em;
   font-weight: 300;
   text-transform: uppercase;
@@ -94,6 +94,7 @@ body.pintwood-dark {
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  padding: 10px 0;
 }
 
 .welcome-presented-by .presented-label {
@@ -115,7 +116,7 @@ body.pintwood-dark {
 }
 
 .welcome-sponsors img {
-  max-height: clamp(50px, 7vw, 100px);
+  max-height: clamp(60px, 9vw, 130px);
   width: auto;
 }
 
@@ -131,10 +132,17 @@ body.pintwood-dark {
 /* ── Results URL + QR ────────────────────────────────── */
 .welcome-results {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 24px;
   padding-bottom: 16px;
+}
+
+.welcome-results-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
 }
 
 .welcome-results .results-label {
@@ -153,12 +161,9 @@ body.pintwood-dark {
   letter-spacing: 0.02em;
 }
 
-#welcome-qrcode {
-  /* sized by JS */
-}
-
 #welcome-qrcode img,
 #welcome-qrcode canvas {
+  display: block;
   border: 6px solid white;
   border-radius: 4px;
 }
@@ -212,8 +217,10 @@ make_banner('Welcome', false);
   <div class="welcome-divider"></div>
 
   <div class="welcome-results">
-    <p class="results-label">For real-time results, visit</p>
-    <p class="results-url">race.indypintwoodderby.com</p>
+    <div class="welcome-results-text">
+      <p class="results-label">For real-time results, visit</p>
+      <p class="results-url">race.indypintwoodderby.com</p>
+    </div>
     <div id="welcome-qrcode"></div>
   </div>
 
@@ -221,9 +228,4 @@ make_banner('Welcome', false);
 
 <?php require_once('inc/ajax-failure.inc'); ?>
 </body>
-<?php
-if (should_use_pintwood_theme()) {
-    add_pintwood_footer();
-}
-?>
 </html>

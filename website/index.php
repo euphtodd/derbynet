@@ -178,10 +178,6 @@ if ($two_columns) {
 
 echo "</div>\n";  // index_background
 
-if (should_use_pintwood_theme()) {
-    add_pintwood_footer();
-}
-
 echo "</body>\n";
 echo "</html>\n";
 ?>

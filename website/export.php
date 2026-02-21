@@ -78,10 +78,5 @@ function workbook_json() {
 <input type="button" value="Standings As .csv" onclick="write_sheet_csv('Standings');"/>
 <input type="button" value="Awards As .csv" onclick="write_sheet_csv('Awards');"/>
 </div>
-<?php
-  if (should_use_pintwood_theme()) {
-      add_pintwood_footer();
-  }
-?>
 </body>
 </html>

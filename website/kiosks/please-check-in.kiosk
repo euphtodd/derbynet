@@ -52,34 +52,62 @@ $(function () {
 </script>
 <style>
 body { overflow: hidden; }
+
 .wanted_container {
   position: absolute;
   top: 128px;
   column-count: 4;
-  column-width:22vw;
+  column-width: 22vw;
   column-gap: 4vw;
-  }
+}
 body.pintwood-dark .wanted_container {
   top: 0;
   position: relative;
-  }
-.wanted_container li {
-  font-size: 1.5em;
-  }
-.wanted_list{
-  margin-top: 0px;
-  margin-bottom: 16px;
-  }
-.class_heading {
-  border-bottom: 2px solid black;
-  text-align:center;
-  font-size: 2em;
-  color: var(--pintwood-citrine, #FFFF00);
-  background-color: var(--pintwood-navy, #023882);
-  margin-top:0;
-  margin-bottom:0;
-  }
+  padding: 16px 40px;
+}
 
+/* Category heading — subtle sapphire left-border treatment */
+.class_heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pintwood-citrine);
+  background: transparent;
+  border: none;
+  border-left: 3px solid var(--pintwood-sapphire);
+  padding: 4px 0 4px 10px;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  break-after: avoid;
+}
+
+.wanted_list {
+  list-style: none;
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+
+.wanted_container li {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  color: var(--pintwood-light-text);
+  padding: 3px 0 3px 13px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Subdue the heading — it's descriptive, not a title */
+body.pintwood-dark .kiosk_heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5vh;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pintwood-muted-text);
+  padding: 12px 0 4px;
+}
 </style>
 </head>
 <body>
@@ -88,7 +116,6 @@ require_once('inc/data.inc');
 require_once('inc/schema_version.inc');
 require_once('inc/banner.inc');
 require_once('inc/header.inc');
-require_once('inc/footer.inc');
   // When there are racers yet to check in, the generated page structure looks like:
   //
   // <div class='kiosk_heading'>not yet checked in:</div>
@@ -153,9 +180,4 @@ if ($prev_classid >= 0) {
 ?>
 <?php require('inc/ajax-failure.inc'); ?>
 </body>
-<?php
-if (should_use_pintwood_theme()) {
-    add_pintwood_footer();
-}
-?>
 </html>
