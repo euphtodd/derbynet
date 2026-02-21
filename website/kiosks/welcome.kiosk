@@ -1,26 +1,229 @@
-<!DOCTYPE html>
+<?php
+require_once('inc/theme-selector.inc');
+require_once('inc/sponsors.inc');
+$sponsor_data = load_sponsors();
+$keg_sponsors = $sponsor_data['sponsors']['keg'];
+$logo_base = $sponsor_data['config']['sponsor_base_path'];
+?><!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Welcome</title>
 <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/qrcode.min.js"></script>
 <?php require('inc/kiosk-poller.inc'); ?>
 <?php require('inc/stylesheet.inc'); ?>
 <link rel="stylesheet" type="text/css" href="css/kiosks.css"/>
-<style>
-.full_page_center img {
-max-width: 100%;
-max-height: 80vh;
+<?php pintwood_head_includes(); ?>
+<style type="text/css">
+/* Hide the default banner */
+.banner { display: none !important; }
+
+body.pintwood-dark {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Hero area ─────────────────────────────────────── */
+.welcome-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 40px 0;
+  gap: 28px;
+}
+
+/* "Welcome to the inaugural" */
+.welcome-pre {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(22px, 3.5vw, 42px);
+  font-weight: 300;
+  color: var(--pintwood-muted-text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Logo + wordmark lockup (large version of header branding) */
+.welcome-identity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.welcome-identity img.event-logo {
+  height: clamp(80px, 10vw, 140px);
+  width: auto;
+}
+
+.welcome-wordmark {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-align: left;
+}
+
+.welcome-wordmark .top-line {
+  display: block;
+  color: var(--pintwood-muted-text);
+  font-size: clamp(14px, 1.8vw, 24px);
+  letter-spacing: 0.25em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.welcome-wordmark .highlight {
+  display: block;
+  color: var(--pintwood-citrine);
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 88px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-left: -3px;
+}
+
+/* ── "Presented by" + sponsor logos ─────────────────── */
+.welcome-presented-by {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.welcome-presented-by .presented-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(13px, 1.6vw, 20px);
+  font-weight: 400;
+  color: var(--pintwood-muted-text);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.welcome-sponsors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.welcome-sponsors img {
+  max-height: clamp(50px, 7vw, 100px);
+  width: auto;
+}
+
+/* ── Divider ─────────────────────────────────────────── */
+.welcome-divider {
+  width: 60%;
+  max-width: 600px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--pintwood-citrine), transparent);
+  opacity: 0.5;
+}
+
+/* ── Results URL + QR ────────────────────────────────── */
+.welcome-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 16px;
+}
+
+.welcome-results .results-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(14px, 1.8vw, 22px);
+  color: var(--pintwood-muted-text);
+  margin: 0;
+}
+
+.welcome-results .results-url {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.8vw, 36px);
+  font-weight: 700;
+  color: var(--pintwood-sapphire);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+#welcome-qrcode {
+  /* sized by JS */
+}
+
+#welcome-qrcode img,
+#welcome-qrcode canvas {
+  border: 6px solid white;
+  border-radius: 4px;
 }
 </style>
+<script type="text/javascript">
+$(function() {
+  var dim = Math.round(Math.min(0.12 * window.screen.width, 140));
+  dim = Math.max(dim, 80);
+
+  new QRCode(document.getElementById("welcome-qrcode"), {
+    text: "https://race.indypintwoodderby.com",
+    width: dim,
+    height: dim
+  });
+});
+</script>
 </head>
 <body>
-<div class="full_page_center">
-<img src="image.php/emblem"/>
+<?php
+require_once('inc/data.inc');
+require_once('inc/banner.inc');
+require_once('inc/footer.inc');
+make_banner('Welcome', false);
+?>
+
+<div class="welcome-hero">
+
+  <p class="welcome-pre">Welcome to the inaugural</p>
+
+  <div class="welcome-identity">
+    <img class="event-logo"
+         src="Images/Pintwood_Derby/pintwood-logo.png"
+         alt="Pintwood Derby Logo"
+         onerror="this.style.display='none'"/>
+    <div class="welcome-wordmark">
+      <span class="top-line">Monon District</span>
+      <span class="highlight">Pintwood Derby</span>
+    </div>
+  </div>
+
+  <div class="welcome-presented-by">
+    <p class="presented-label">Presented by</p>
+    <div class="welcome-sponsors">
+<?php foreach ($keg_sponsors as $sponsor): ?>
+      <img src="<?php echo htmlspecialchars(get_sponsor_path($sponsor['logo'])); ?>"
+           alt="<?php echo htmlspecialchars($sponsor['name']); ?>"/>
+<?php endforeach; ?>
+    </div>
+  </div>
+
+  <div class="welcome-divider"></div>
+
+  <div class="welcome-results">
+    <p class="results-label">For real-time results, visit</p>
+    <p class="results-url">race.indypintwoodderby.com</p>
+    <div id="welcome-qrcode"></div>
+  </div>
+
 </div>
-<p class="kiosk_title">Welcome</p>
 
 <?php require_once('inc/ajax-failure.inc'); ?>
-
 </body>
+<?php
+if (should_use_pintwood_theme()) {
+    add_pintwood_footer();
+}
+?>
 </html>
